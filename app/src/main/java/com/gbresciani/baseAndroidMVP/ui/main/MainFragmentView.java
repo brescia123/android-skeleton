@@ -1,6 +1,6 @@
-package com.cefriel.salmoiraghi150.ui.main;
+package com.gbresciani.baseAndroidMVP.ui.main;
 
-import com.cefriel.salmoiraghi150.ui.base.BaseView;
+import com.gbresciani.baseAndroidMVP.ui.base.BaseView;
 
 public interface MainFragmentView extends BaseView {
 

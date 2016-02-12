@@ -1,4 +1,4 @@
-package com.cefriel.salmoiraghi150.ui.main;
+package com.gbresciani.baseAndroidMVP.ui.main;
 
 
 import android.os.Bundle;
@@ -10,8 +10,9 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.cefriel.salmoiraghi150.App;
-import com.cefriel.salmoiraghi150.R;
+import com.gbresciani.baseAndroidMVP.App;
+import com.gbresciani.baseAndroidMVP.R;
+import com.gbresciani.baseAndroidMVP.injection.DaggerInjectorComponent;
 
 import javax.inject.Inject;
 
@@ -20,7 +21,6 @@ import butterknife.ButterKnife;
 
 
 public class MainFragment extends Fragment implements MainFragmentView {
-
 
     @Bind(R.id.button)
     Button button;
@@ -45,7 +45,6 @@ public class MainFragment extends Fragment implements MainFragmentView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
-        ((App) getActivity().getApplication()).getPresentersComponent().inject(this);
     }
 
     @Override
@@ -53,6 +52,8 @@ public class MainFragment extends Fragment implements MainFragmentView {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         ButterKnife.bind(this, view);
+        DaggerInjectorComponent.builder().presentersComponent(App.getPresentersComponent()).build().inject(this
+        );
         presenter.attachView(this);
         button.setOnClickListener(new View.OnClickListener() {
             @Override

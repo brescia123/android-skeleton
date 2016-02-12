@@ -1,10 +1,10 @@
-package com.cefriel.salmoiraghi150.ui.main;
+package com.gbresciani.baseAndroidMVP.ui.main;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
-import com.cefriel.salmoiraghi150.R;
+import com.gbresciani.baseAndroidMVP.R;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.cefriel.salmoiraghi150;
+package com.gbresciani.baseAndroidMVP;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

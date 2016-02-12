@@ -1,6 +1,7 @@
-package com.cefriel.salmoiraghi150.injection;
+package com.gbresciani.baseAndroidMVP.injection;
 
 import android.app.Application;
+import android.content.Context;
 
 import javax.inject.Singleton;
 
@@ -10,15 +11,19 @@ import dagger.Provides;
 @Module
 public class AppModule {
 
-    Application application;
+    private static Application application;
 
     public AppModule(Application application) {
         this.application = application;
     }
 
     @Provides
-    @Singleton
     Application provideApplication() {
         return application;
+    }
+
+    @Provides
+    Context provideContext() {
+        return application.getApplicationContext();
     }
 }

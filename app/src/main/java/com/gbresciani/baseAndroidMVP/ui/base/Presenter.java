@@ -1,4 +1,4 @@
-package com.cefriel.salmoiraghi150.ui.base;
+package com.gbresciani.baseAndroidMVP.ui.base;
 
 public interface Presenter<V extends BaseView> {
 
