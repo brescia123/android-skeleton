@@ -4,19 +4,17 @@ import android.app.Application;
 
 import com.gbresciani.androidSkeleton.injection.components.AppComponent;
 import com.gbresciani.androidSkeleton.injection.components.DaggerAppComponent;
-import com.gbresciani.androidSkeleton.injection.components.DaggerDataComponent;
 import com.gbresciani.androidSkeleton.injection.components.DaggerPresentersComponent;
-import com.gbresciani.androidSkeleton.injection.modules.AppModule;
-import com.gbresciani.androidSkeleton.injection.components.DataComponent;
-import com.gbresciani.androidSkeleton.injection.modules.DataModule;
 import com.gbresciani.androidSkeleton.injection.components.PresentersComponent;
+import com.gbresciani.androidSkeleton.injection.modules.AppModule;
+import com.gbresciani.androidSkeleton.injection.modules.DataModule;
 
 import timber.log.Timber;
 
 public class App extends Application {
 
     private static PresentersComponent presentersComponent;
-    private static DataComponent dataComponent;
+    private static AppComponent appComponent;
 
     @Override
     public void onCreate() {
@@ -29,24 +27,21 @@ public class App extends Application {
         AppModule appModule = new AppModule(this);
         DataModule dataModule = new DataModule();
 
-        AppComponent appComponent = DaggerAppComponent
+
+        appComponent = DaggerAppComponent
                 .builder()
                 .appModule(appModule)
-                .build();
-
-        dataComponent = DaggerDataComponent
-                .builder()
-                .appComponent(appComponent)
+                .dataModule(dataModule)
                 .build();
 
         presentersComponent = DaggerPresentersComponent
                 .builder()
-                .dataComponent(dataComponent)
+                .appComponent(appComponent)
                 .build();
     }
 
-    public static DataComponent getDataComponent() {
-        return dataComponent;
+    public static AppComponent getAppComponent() {
+        return appComponent;
     }
 
     public static PresentersComponent getPresentersComponent() {

@@ -6,7 +6,7 @@ import com.gbresciani.androidSkeleton.ui.main.MainPresenter;
 
 import dagger.Component;
 
-@Component(modules = PresentersModule.class, dependencies = DataComponent.class)
+@Component(modules = PresentersModule.class, dependencies = AppComponent.class)
 public interface PresentersComponent {
     MainPresenter getMainPresenter();
     void inject(MainFragment mainFragment);

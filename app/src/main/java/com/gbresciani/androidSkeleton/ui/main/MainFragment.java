@@ -53,7 +53,7 @@ public class MainFragment extends Fragment implements MainFragmentView {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         ButterKnife.bind(this, view);
         // Inject all the fields annotated with @Inject
-        DaggerPresentersComponent.builder().dataComponent(App.getDataComponent()).build().inject(this);
+        DaggerPresentersComponent.builder().appComponent(App.getAppComponent()).build().inject(this);
         presenter.attachView(this);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
