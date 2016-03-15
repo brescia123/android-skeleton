@@ -1,4 +1,4 @@
-package com.cefriel.salmoiraghi150;
+package it.gbresciani.androidSkeleton;
 
 import org.junit.Test;
 

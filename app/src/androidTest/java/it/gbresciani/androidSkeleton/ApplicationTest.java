@@ -1,4 +1,4 @@
-package com.cefriel.salmoiraghi150;
+package it.gbresciani.androidSkeleton;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

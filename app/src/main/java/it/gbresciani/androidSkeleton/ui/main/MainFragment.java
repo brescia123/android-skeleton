@@ -1,4 +1,4 @@
-package com.cefriel.salmoiraghi150.ui.main;
+package it.gbresciani.androidSkeleton.ui.main;
 
 
 import android.os.Bundle;
@@ -10,8 +10,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.cefriel.salmoiraghi150.App;
-import com.cefriel.salmoiraghi150.R;
+import it.gbresciani.androidSkeleton.App;
 
 import javax.inject.Inject;
 
@@ -22,11 +21,11 @@ import butterknife.ButterKnife;
 public class MainFragment extends Fragment implements MainFragmentView {
 
 
-    @Bind(R.id.button)
+    @Bind(it.gbresciani.androidSkeleton.R.id.button)
     Button button;
-    @Bind(R.id.progressBar)
+    @Bind(it.gbresciani.androidSkeleton.R.id.progressBar)
     ProgressBar progressBar;
-    @Bind(R.id.textView)
+    @Bind(it.gbresciani.androidSkeleton.R.id.textView)
     TextView textView;
 
     @Inject
@@ -51,7 +50,7 @@ public class MainFragment extends Fragment implements MainFragmentView {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_main, container, false);
+        View view = inflater.inflate(it.gbresciani.androidSkeleton.R.layout.fragment_main, container, false);
         ButterKnife.bind(this, view);
         presenter.attachView(this);
         button.setOnClickListener(new View.OnClickListener() {

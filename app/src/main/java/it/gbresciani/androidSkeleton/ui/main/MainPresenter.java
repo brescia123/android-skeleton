@@ -1,8 +1,8 @@
-package com.cefriel.salmoiraghi150.ui.main;
+package it.gbresciani.androidSkeleton.ui.main;
 
 import android.support.annotation.Nullable;
 
-import com.cefriel.salmoiraghi150.ui.base.BasePresenter;
+import it.gbresciani.androidSkeleton.ui.base.BasePresenter;
 
 import java.io.IOException;
 

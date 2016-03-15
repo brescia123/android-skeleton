@@ -1,6 +1,6 @@
-package com.cefriel.salmoiraghi150.injection;
+package it.gbresciani.androidSkeleton.injection;
 
-import com.cefriel.salmoiraghi150.ui.main.MainFragment;
+import it.gbresciani.androidSkeleton.ui.main.MainFragment;
 
 import javax.inject.Singleton;
 

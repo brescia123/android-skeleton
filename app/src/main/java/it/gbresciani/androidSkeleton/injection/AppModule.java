@@ -1,4 +1,4 @@
-package com.cefriel.salmoiraghi150.injection;
+package it.gbresciani.androidSkeleton.injection;
 
 import android.app.Application;
 

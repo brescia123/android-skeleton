@@ -1,6 +1,6 @@
-package com.cefriel.salmoiraghi150.ui.main;
+package it.gbresciani.androidSkeleton.ui.main;
 
-import com.cefriel.salmoiraghi150.ui.base.BaseView;
+import it.gbresciani.androidSkeleton.ui.base.BaseView;
 
 public interface MainFragmentView extends BaseView {
 

@@ -1,9 +1,9 @@
-package com.cefriel.salmoiraghi150;
+package it.gbresciani.androidSkeleton;
 
 import android.app.Application;
 
-import com.cefriel.salmoiraghi150.ui.DaggerPresentersComponent;
-import com.cefriel.salmoiraghi150.injection.PresentersComponent;
+import com.gbresciani.androidSkeleton.ui.DaggerPresentersComponent;
+import it.gbresciani.androidSkeleton.injection.PresentersComponent;
 
 import timber.log.Timber;
 
