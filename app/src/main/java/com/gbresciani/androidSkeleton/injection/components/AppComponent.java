@@ -6,8 +6,11 @@ import com.gbresciani.androidSkeleton.data.DataManager;
 import com.gbresciani.androidSkeleton.injection.modules.AppModule;
 import com.gbresciani.androidSkeleton.injection.modules.DataModule;
 
+import javax.inject.Singleton;
+
 import dagger.Component;
 
+@Singleton
 @Component(modules = {AppModule.class, DataModule.class})
 public interface AppComponent {
     // Exposes Application to any component which depends on this

@@ -3,6 +3,8 @@ package com.gbresciani.androidSkeleton.injection.modules;
 import android.app.Application;
 import android.content.Context;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -15,6 +17,7 @@ public class AppModule {
         app = application;
     }
 
+    @Singleton
     @Provides
     Application provideApplication() {
         return app;
