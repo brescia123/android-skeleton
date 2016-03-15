@@ -1,13 +1,11 @@
-package com.gbresciani.baseAndroidMVP.injection;
+package com.gbresciani.androidSkeleton.injection.modules;
 
 
 import android.content.Context;
 
-import com.gbresciani.baseAndroidMVP.data.DataManager;
-import com.gbresciani.baseAndroidMVP.data.NetworkResourcesHelper;
-import com.gbresciani.baseAndroidMVP.data.PreferenceHelper;
-
-import javax.inject.Singleton;
+import com.gbresciani.androidSkeleton.data.DataManager;
+import com.gbresciani.androidSkeleton.data.NetworkResourcesHelper;
+import com.gbresciani.androidSkeleton.data.PreferenceHelper;
 
 import dagger.Module;
 import dagger.Provides;

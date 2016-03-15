@@ -1,4 +1,4 @@
-package com.gbresciani.baseAndroidMVP.ui.base;
+package com.gbresciani.androidSkeleton.ui.base;
 
 public class BasePresenter<V extends BaseView> implements Presenter<V> {
 

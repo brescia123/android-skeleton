@@ -1,4 +1,4 @@
-package com.gbresciani.baseAndroidMVP;
+package com.gbresciani.androidSkeleton;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

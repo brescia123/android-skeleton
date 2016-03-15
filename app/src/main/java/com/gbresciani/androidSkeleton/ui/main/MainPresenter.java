@@ -1,7 +1,7 @@
-package com.gbresciani.baseAndroidMVP.ui.main;
+package com.gbresciani.androidSkeleton.ui.main;
 
-import com.gbresciani.baseAndroidMVP.data.DataManager;
-import com.gbresciani.baseAndroidMVP.ui.base.BasePresenter;
+import com.gbresciani.androidSkeleton.data.DataManager;
+import com.gbresciani.androidSkeleton.ui.base.BasePresenter;
 
 import javax.inject.Inject;
 

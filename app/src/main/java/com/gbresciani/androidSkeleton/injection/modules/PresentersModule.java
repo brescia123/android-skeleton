@@ -1,10 +1,7 @@
-package com.gbresciani.baseAndroidMVP.injection;
+package com.gbresciani.androidSkeleton.injection.modules;
 
-import com.gbresciani.baseAndroidMVP.data.DataManager;
-import com.gbresciani.baseAndroidMVP.ui.main.MainPresenter;
-
-import javax.inject.Inject;
-import javax.inject.Singleton;
+import com.gbresciani.androidSkeleton.data.DataManager;
+import com.gbresciani.androidSkeleton.ui.main.MainPresenter;
 
 import dagger.Module;
 import dagger.Provides;

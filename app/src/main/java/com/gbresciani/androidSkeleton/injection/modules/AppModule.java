@@ -1,9 +1,7 @@
-package com.gbresciani.baseAndroidMVP.injection;
+package com.gbresciani.androidSkeleton.injection.modules;
 
 import android.app.Application;
 import android.content.Context;
-
-import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;

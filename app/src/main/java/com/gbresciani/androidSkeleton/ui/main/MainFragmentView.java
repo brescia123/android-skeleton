@@ -1,6 +1,6 @@
-package com.gbresciani.baseAndroidMVP.ui.main;
+package com.gbresciani.androidSkeleton.ui.main;
 
-import com.gbresciani.baseAndroidMVP.ui.base.BaseView;
+import com.gbresciani.androidSkeleton.ui.base.BaseView;
 
 public interface MainFragmentView extends BaseView {
 

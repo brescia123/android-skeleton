@@ -1,11 +1,8 @@
-package com.gbresciani.baseAndroidMVP.data;
+package com.gbresciani.androidSkeleton.data;
 
 import android.support.annotation.Nullable;
 
 import java.io.IOException;
-
-import javax.inject.Inject;
-import javax.inject.Singleton;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

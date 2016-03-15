@@ -1,4 +1,4 @@
-package com.gbresciani.baseAndroidMVP.ui.main;
+package com.gbresciani.androidSkeleton.ui.main;
 
 
 import android.os.Bundle;
@@ -10,9 +10,9 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.gbresciani.baseAndroidMVP.App;
-import com.gbresciani.baseAndroidMVP.R;
-import com.gbresciani.baseAndroidMVP.injection.DaggerInjectorComponent;
+import com.gbresciani.androidSkeleton.App;
+import com.gbresciani.androidSkeleton.R;
+import com.gbresciani.androidSkeleton.injection.DaggerInjectorComponent;
 
 import javax.inject.Inject;
 

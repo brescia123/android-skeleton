@@ -1,15 +1,15 @@
-package com.gbresciani.baseAndroidMVP;
+package com.gbresciani.androidSkeleton;
 
 import android.app.Application;
 
-import com.gbresciani.baseAndroidMVP.injection.AppComponent;
-import com.gbresciani.baseAndroidMVP.injection.AppModule;
-import com.gbresciani.baseAndroidMVP.injection.DaggerAppComponent;
-import com.gbresciani.baseAndroidMVP.injection.DaggerDataComponent;
-import com.gbresciani.baseAndroidMVP.injection.DaggerPresentersComponent;
-import com.gbresciani.baseAndroidMVP.injection.DataComponent;
-import com.gbresciani.baseAndroidMVP.injection.DataModule;
-import com.gbresciani.baseAndroidMVP.injection.PresentersComponent;
+import com.gbresciani.androidSkeleton.injection.AppComponent;
+import com.gbresciani.androidSkeleton.injection.AppModule;
+import com.gbresciani.androidSkeleton.injection.DaggerAppComponent;
+import com.gbresciani.androidSkeleton.injection.DaggerDataComponent;
+import com.gbresciani.androidSkeleton.injection.DaggerPresentersComponent;
+import com.gbresciani.androidSkeleton.injection.DataComponent;
+import com.gbresciani.androidSkeleton.injection.DataModule;
+import com.gbresciani.androidSkeleton.injection.PresentersComponent;
 
 import timber.log.Timber;
 

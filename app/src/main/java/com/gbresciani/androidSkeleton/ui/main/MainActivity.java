@@ -1,10 +1,10 @@
-package com.gbresciani.baseAndroidMVP.ui.main;
+package com.gbresciani.androidSkeleton.ui.main;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
-import com.gbresciani.baseAndroidMVP.R;
+import com.gbresciani.androidSkeleton.R;
 
 public class MainActivity extends AppCompatActivity {
 

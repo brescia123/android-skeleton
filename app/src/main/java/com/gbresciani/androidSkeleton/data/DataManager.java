@@ -1,9 +1,6 @@
-package com.gbresciani.baseAndroidMVP.data;
+package com.gbresciani.androidSkeleton.data;
 
 import java.io.IOException;
-
-import javax.inject.Inject;
-import javax.inject.Singleton;
 
 import rx.Observable;
 import rx.functions.Func0;

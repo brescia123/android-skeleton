@@ -1,10 +1,7 @@
-package com.gbresciani.baseAndroidMVP.data;
+package com.gbresciani.androidSkeleton.data;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-
-import javax.inject.Inject;
-import javax.inject.Singleton;
 
 public class PreferenceHelper {
 
