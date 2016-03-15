@@ -2,7 +2,7 @@ package it.gbresciani.androidSkeleton;
 
 import android.app.Application;
 
-import com.gbresciani.androidSkeleton.ui.DaggerPresentersComponent;
+import it.gbresciani.androidSkeleton.ui.DaggerPresentersComponent;
 import it.gbresciani.androidSkeleton.injection.PresentersComponent;
 
 import timber.log.Timber;
