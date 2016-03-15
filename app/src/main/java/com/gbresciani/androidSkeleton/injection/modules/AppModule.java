@@ -9,19 +9,14 @@ import dagger.Provides;
 @Module
 public class AppModule {
 
-    private static Application application;
+    private static Application app;
 
     public AppModule(Application application) {
-        this.application = application;
+        app = application;
     }
 
     @Provides
     Application provideApplication() {
-        return application;
-    }
-
-    @Provides
-    Context provideContext() {
-        return application.getApplicationContext();
+        return app;
     }
 }

@@ -1,6 +1,7 @@
 package com.gbresciani.androidSkeleton.injection.modules;
 
 
+import android.app.Application;
 import android.content.Context;
 
 import com.gbresciani.androidSkeleton.data.DataManager;
@@ -14,7 +15,7 @@ import dagger.Provides;
 public class DataModule {
 
     @Provides
-    public PreferenceHelper providePreferenceHelper(Context context) {
+    public PreferenceHelper providePreferenceHelper(Application context) {
         return new PreferenceHelper(context);
     }
 

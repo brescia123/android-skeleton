@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.gbresciani.androidSkeleton.App;
 import com.gbresciani.androidSkeleton.R;
-import com.gbresciani.androidSkeleton.injection.DaggerInjectorComponent;
+import com.gbresciani.androidSkeleton.injection.components.DaggerPresentersComponent;
 
 import javax.inject.Inject;
 
@@ -52,8 +52,8 @@ public class MainFragment extends Fragment implements MainFragmentView {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         ButterKnife.bind(this, view);
-        DaggerInjectorComponent.builder().presentersComponent(App.getPresentersComponent()).build().inject(this
-        );
+        // Inject all the fields annotated with @Inject
+        DaggerPresentersComponent.builder().dataComponent(App.getDataComponent()).build().inject(this);
         presenter.attachView(this);
         button.setOnClickListener(new View.OnClickListener() {
             @Override

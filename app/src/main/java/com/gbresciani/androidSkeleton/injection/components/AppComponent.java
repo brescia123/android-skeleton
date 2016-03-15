@@ -2,7 +2,7 @@ package com.gbresciani.androidSkeleton.injection.components;
 
 import android.app.Application;
 
-import com.gbresciani.androidSkeleton.injection.AppModule;
+import com.gbresciani.androidSkeleton.injection.modules.AppModule;
 
 import dagger.Component;
 
