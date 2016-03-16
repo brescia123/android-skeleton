@@ -19,11 +19,19 @@ public class MainPresenter extends BasePresenter<MainFragmentView> {
         this.dataManager = dataManager;
     }
 
+    @Override
+    public void attachView(MainFragmentView view) {
+        super.attachView(view);
+        // This method is called every time the View is re-created (configuration changes; overriding
+        // it allows us to inform the View of which "state" it has to display (e.g. one network
+        // call is still alive and so the View has to display a ProgressBar)
+        // TODO: move this to the @BasePresenter doc
+
+    }
+
     public void loadGist() {
         getView().showProgress(true);
-        dataManager.loadGist()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+        dataManager.loadGist(true, true)
                 .subscribe(new Subscriber<String>() {
                     @Override
                     public void onCompleted() {
