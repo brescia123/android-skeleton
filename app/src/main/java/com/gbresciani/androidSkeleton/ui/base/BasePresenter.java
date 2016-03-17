@@ -1,5 +1,10 @@
 package com.gbresciani.androidSkeleton.ui.base;
 
+/**
+ * Base Class for all the presenters. It takes care of implementing the attach/detach view mechanism.
+ *
+ * @param <V> The type of view the presenter is controlling.
+ */
 public class BasePresenter<V extends BaseView> implements Presenter<V> {
 
     private V view;
