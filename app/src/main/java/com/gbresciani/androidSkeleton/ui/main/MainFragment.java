@@ -1,4 +1,4 @@
-package it.gbresciani.androidSkeleton.ui.main;
+package com.gbresciani.androidSkeleton.ui.main;
 
 
 import android.os.Bundle;
@@ -10,7 +10,9 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import it.gbresciani.androidSkeleton.App;
+import com.gbresciani.androidSkeleton.App;
+import com.gbresciani.androidSkeleton.R;
+import com.gbresciani.androidSkeleton.injection.modules.PresentersModule;
 
 import javax.inject.Inject;
 
@@ -20,12 +22,11 @@ import butterknife.ButterKnife;
 
 public class MainFragment extends Fragment implements MainFragmentView {
 
-
-    @Bind(it.gbresciani.androidSkeleton.R.id.button)
+    @Bind(R.id.button)
     Button button;
-    @Bind(it.gbresciani.androidSkeleton.R.id.progressBar)
+    @Bind(R.id.progressBar)
     ProgressBar progressBar;
-    @Bind(it.gbresciani.androidSkeleton.R.id.textView)
+    @Bind(R.id.textView)
     TextView textView;
 
     @Inject
@@ -44,29 +45,42 @@ public class MainFragment extends Fragment implements MainFragmentView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
-        ((App) getActivity().getApplication()).getPresentersComponent().inject(this);
+        setupPresentersComponent();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(it.gbresciani.androidSkeleton.R.layout.fragment_main, container, false);
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
         ButterKnife.bind(this, view);
-        presenter.attachView(this);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                presenter.loadGist();
-            }
-        });
+        // Attach to the presenter: thanks to setRetainInstance(true) the Fragment instance should
+        // survive configuration changes, so the presenter is still alive.
+        presenter.bindView(this);
+        initUI();
         return view;
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        presenter.unbindView();
+    }
 
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        presenter.detachView();
+    public void onDestroy() {
+        super.onDestroy();
+        presenter.destroyView();
+    }
+
+
+    /*
+    * View methods
+    */
+
+    @Override
+    public void setupPresentersComponent() {
+        // Inject presenters annotated with @Inject
+        App.getAppComponent().plus(new PresentersModule()).inject(this);
     }
 
     @Override
@@ -79,4 +93,21 @@ public class MainFragment extends Fragment implements MainFragmentView {
     public void showText(String text) {
         textView.setText(text);
     }
+
+    /*
+    * Private methods
+    */
+
+    /**
+     * Initialize the UI...
+     */
+    private void initUI() {
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.loadGist();
+            }
+        });
+    }
+
 }

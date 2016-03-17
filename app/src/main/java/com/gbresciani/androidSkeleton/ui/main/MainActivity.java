@@ -1,15 +1,17 @@
-package it.gbresciani.androidSkeleton.ui.main;
+package com.gbresciani.androidSkeleton.ui.main;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+
+import com.gbresciani.androidSkeleton.R;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(it.gbresciani.androidSkeleton.R.layout.activity_main);
+        setContentView(R.layout.activity_main);
         FragmentManager fm = getSupportFragmentManager();
         MainFragment mainFragment = (MainFragment) fm.findFragmentByTag("mainFragment");
 
@@ -17,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         if (mainFragment == null) {
             // add the fragment
             mainFragment = MainFragment.newInstance();
-            fm.beginTransaction().add(it.gbresciani.androidSkeleton.R.id.mainLayout, mainFragment, "mainFragment").commit();
+            fm.beginTransaction().add(R.id.mainLayout, mainFragment, "mainFragment").commit();
         }
     }
 }
