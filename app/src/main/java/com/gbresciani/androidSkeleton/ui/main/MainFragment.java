@@ -61,9 +61,14 @@ public class MainFragment extends Fragment implements MainFragmentView {
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+        presenter.unbindView();
+    }
+
+    @Override
     public void onDestroy() {
         super.onDestroy();
-        presenter.unbindView();
     }
 
 

@@ -1,8 +1,5 @@
 package com.gbresciani.androidSkeleton.injection.components;
 
-import android.app.Application;
-
-import com.gbresciani.androidSkeleton.data.DataManager;
 import com.gbresciani.androidSkeleton.injection.modules.AppModule;
 import com.gbresciani.androidSkeleton.injection.modules.DataModule;
 import com.gbresciani.androidSkeleton.injection.modules.PresentersModule;
