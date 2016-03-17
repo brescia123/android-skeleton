@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.gbresciani.androidSkeleton.App;
 import com.gbresciani.androidSkeleton.R;
-import com.gbresciani.androidSkeleton.injection.components.DaggerPresentersComponent;
+import com.gbresciani.androidSkeleton.injection.modules.PresentersModule;
 
 import javax.inject.Inject;
 
@@ -45,6 +45,10 @@ public class MainFragment extends Fragment implements MainFragmentView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+        setupPresentersComponent();
+        // Attach to the presenter: thanks to setRetainInstance(true) the Fragment instance should
+        // survive configuration changes, so the presenter is still alive.
+        presenter.attachView(this);
     }
 
     @Override
@@ -52,23 +56,25 @@ public class MainFragment extends Fragment implements MainFragmentView {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         ButterKnife.bind(this, view);
-        // Inject all the fields annotated with @Inject
-        DaggerPresentersComponent.builder().appComponent(App.getAppComponent()).build().inject(this);
-        presenter.attachView(this);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                presenter.loadGist();
-            }
-        });
+        initUI();
         return view;
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        presenter.detachView();
+    }
+
+
+    /*
+    * View methods
+    */
 
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        presenter.detachView();
+    public void setupPresentersComponent() {
+        // Inject presenters annotated with @Inject
+        App.getAppComponent().plus(new PresentersModule()).inject(this);
     }
 
     @Override
@@ -81,4 +87,21 @@ public class MainFragment extends Fragment implements MainFragmentView {
     public void showText(String text) {
         textView.setText(text);
     }
+
+    /*
+    * Private methods
+    */
+
+    /**
+     * Initialize the UI...
+     */
+    private void initUI() {
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.loadGist();
+            }
+        });
+    }
+
 }
