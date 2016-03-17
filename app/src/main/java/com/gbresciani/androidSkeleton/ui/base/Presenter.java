@@ -12,6 +12,7 @@ public interface Presenter<V extends BaseView> {
      * or it is re-created.
      * Implementing it allows the presenter to reset the view to the current "state" (e.g. one
      * network call is still alive and so the View has to display a ProgressBar).
+     * (typically within onResume())
      *
      * @param view the view to be bound
      */
@@ -20,13 +21,13 @@ public interface Presenter<V extends BaseView> {
     /**
      * This method should be called every time the view is unbound from the presenter, maybe after
      * a configuration change. Unbind a view does not mean that it will be destroyed (use @destroyView),
-     * but just paused.
+     * but just paused. (typically within onPause())
      */
     void unbindView();
 
     /**
      * This method should be called when the view is gonna be destroyed. Use it to cleanup presenter
-     * resources.
+     * resources. (typically within onDestroy())
      */
     void destroyView();
 

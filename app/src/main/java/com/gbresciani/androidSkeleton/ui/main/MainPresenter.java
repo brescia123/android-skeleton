@@ -32,6 +32,7 @@ public class MainPresenter extends BasePresenter<MainFragmentView> {
 
     @Override
     public void destroyView() {
+        super.destroyView();
         subscriptions.clear();
     }
 
@@ -53,10 +54,8 @@ public class MainPresenter extends BasePresenter<MainFragmentView> {
 
                     @Override
                     public void onNext(String s) {
-                        if (getView() != null) {
-                            state_text = s;
-                            getView().showText(state_text);
-                        }
+                        state_text = s;
+                        if (getView() != null) getView().showText(state_text);
                     }
                 });
         subscriptions.add(sub);

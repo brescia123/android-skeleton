@@ -1,5 +1,7 @@
 package com.gbresciani.androidSkeleton.ui.base;
 
+import timber.log.Timber;
+
 /**
  * Base Class for all the presenters. It takes care of implementing the attach/detach view mechanism.
  *
@@ -11,11 +13,19 @@ public abstract class BasePresenter<V extends BaseView> implements Presenter<V> 
 
     @Override
     public void bindView(V view) {
+        Timber.i(getClass().getSimpleName() + " -> bindView");
         this.view = view;
     }
 
     @Override
     public void unbindView() {
+        Timber.i(getClass().getSimpleName() + " -> unbindView");
+        view = null;
+    }
+
+    @Override
+    public void destroyView() {
+        Timber.i(getClass().getSimpleName() + " -> destroyView");
         view = null;
     }
 

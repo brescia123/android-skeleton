@@ -53,11 +53,16 @@ public class MainFragment extends Fragment implements MainFragmentView {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         ButterKnife.bind(this, view);
+        initUI();
+        return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
         // Attach to the presenter: thanks to setRetainInstance(true) the Fragment instance should
         // survive configuration changes, so the presenter is still alive.
         presenter.bindView(this);
-        initUI();
-        return view;
     }
 
     @Override
