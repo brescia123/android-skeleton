@@ -5,6 +5,7 @@ import android.app.Application;
 import com.gbresciani.androidSkeleton.data.DataManager;
 import com.gbresciani.androidSkeleton.injection.modules.AppModule;
 import com.gbresciani.androidSkeleton.injection.modules.DataModule;
+import com.gbresciani.androidSkeleton.injection.modules.PresentersModule;
 
 import javax.inject.Singleton;
 
@@ -13,9 +14,7 @@ import dagger.Component;
 @Singleton
 @Component(modules = {AppModule.class, DataModule.class})
 public interface AppComponent {
-    // Exposes Application to any component which depends on this
-    Application getApp();
 
-    // Exposes DataManager to any component which depends on this
-    DataManager getDataManager();
+    // Since PresentersComponent is subComponent the dependencies are automatically exposed to it
+    PresentersComponent plus(PresentersModule presentersModule);
 }
