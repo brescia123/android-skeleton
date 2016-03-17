@@ -10,17 +10,16 @@ public class BasePresenter<V extends BaseView> implements Presenter<V> {
     private V view;
 
     @Override
-    public void attachView(V view) {
+    public void bindView(V view) {
         this.view = view;
     }
 
     @Override
-    public void detachView() {
+    public void unbindView() {
         view = null;
-
     }
 
-    public boolean isViewAttached() {
+    public boolean isViewBound() {
         return view != null;
     }
 
