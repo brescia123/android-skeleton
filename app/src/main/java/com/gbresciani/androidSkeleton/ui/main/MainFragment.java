@@ -46,9 +46,6 @@ public class MainFragment extends Fragment implements MainFragmentView {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
         setupPresentersComponent();
-        // Attach to the presenter: thanks to setRetainInstance(true) the Fragment instance should
-        // survive configuration changes, so the presenter is still alive.
-        presenter.attachView(this);
     }
 
     @Override
@@ -56,6 +53,9 @@ public class MainFragment extends Fragment implements MainFragmentView {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         ButterKnife.bind(this, view);
+        // Attach to the presenter: thanks to setRetainInstance(true) the Fragment instance should
+        // survive configuration changes, so the presenter is still alive.
+        presenter.bindView(this);
         initUI();
         return view;
     }
@@ -63,7 +63,7 @@ public class MainFragment extends Fragment implements MainFragmentView {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        presenter.detachView();
+        presenter.unbindView();
     }
 
 
