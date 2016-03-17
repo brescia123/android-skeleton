@@ -8,7 +8,7 @@ package com.gbresciani.androidSkeleton.ui.base;
 public interface Presenter<V extends BaseView> {
 
     /**
-     * This method is called every time a view is bound to the presenter (e.g. configuration changes)
+     * This method should be called every time a view is bound to the presenter (e.g. configuration changes)
      * or it is re-created.
      * Implementing it allows the presenter to reset the view to the current "state" (e.g. one
      * network call is still alive and so the View has to display a ProgressBar).
@@ -18,7 +18,16 @@ public interface Presenter<V extends BaseView> {
     void bindView(V view);
 
     /**
-     * Called when the view is destroyed and the presenter is no more needed.
+     * This method should be called every time the view is unbound from the presenter, maybe after
+     * a configuration change. Unbind a view does not mean that it will be destroyed (use @destroyView),
+     * but just paused.
      */
     void unbindView();
+
+    /**
+     * This method should be called when the view is gonna be destroyed. Use it to cleanup presenter
+     * resources.
+     */
+    void destroyView();
+
 }

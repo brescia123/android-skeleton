@@ -6,6 +6,8 @@ import com.gbresciani.androidSkeleton.ui.base.BasePresenter;
 import javax.inject.Inject;
 
 import rx.Subscriber;
+import rx.Subscription;
+import rx.subscriptions.CompositeSubscription;
 import timber.log.Timber;
 
 public class MainPresenter extends BasePresenter<MainFragmentView> {
@@ -15,6 +17,7 @@ public class MainPresenter extends BasePresenter<MainFragmentView> {
     // State variables, initialized with default values.
     private boolean state_loading = false;
     private String state_text = "";
+    private CompositeSubscription subscriptions = new CompositeSubscription();
 
     @Inject
     public MainPresenter(DataManager dataManager) {
@@ -27,10 +30,15 @@ public class MainPresenter extends BasePresenter<MainFragmentView> {
         restoreState();
     }
 
+    @Override
+    public void destroyView() {
+        subscriptions.clear();
+    }
+
     public void loadGist() {
         state_loading = true;
         getView().showProgress(state_loading);
-        dataManager.loadGist(true, true)
+        Subscription sub = dataManager.loadGist(true, true)
                 .subscribe(new Subscriber<String>() {
                     @Override
                     public void onCompleted() {
@@ -51,6 +59,7 @@ public class MainPresenter extends BasePresenter<MainFragmentView> {
                         }
                     }
                 });
+        subscriptions.add(sub);
     }
 
     private void restoreState() {

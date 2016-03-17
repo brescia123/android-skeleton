@@ -5,7 +5,7 @@ package com.gbresciani.androidSkeleton.ui.base;
  *
  * @param <V> The type of view the presenter is controlling.
  */
-public class BasePresenter<V extends BaseView> implements Presenter<V> {
+public abstract class BasePresenter<V extends BaseView> implements Presenter<V> {
 
     private V view;
 

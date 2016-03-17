@@ -69,6 +69,7 @@ public class MainFragment extends Fragment implements MainFragmentView {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        presenter.destroyView();
     }
 
 
